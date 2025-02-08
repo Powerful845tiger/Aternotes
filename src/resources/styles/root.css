@@ -3,19 +3,31 @@
     padding: 0;
     box-sizing: border-box;
     background: transparent;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
     background-color: var(--primary-color);
+    color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-:root {
-    font-family: 'Ariel', sans-serif;
-    font-size: 16px;
-    color: #333;
-
-    --primary-color: #333;
+body.dark-mode {
+    --primary-color: #121212;
+    --secondary-color: #fff;
     --accent-color: #1FD78D;
-    --secondary-color: #000;
+    --accent-color-darker: #14a067;
+    --text-color: #f0f0f0;
+}
+
+
+:root {
+    font-size: 16px;
+    --primary-color: #f0f0f0;
+    --secondary-color: #333;
+    --accent-color: #1FD78D;
+    --accent-color-darker: #2B87D3;
+    --text-color: #333;
 }
