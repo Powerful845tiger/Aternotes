@@ -1,45 +1,87 @@
 .navbar {
     position: absolute;
-    right:0;
-    padding: 1.5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
 }
 
-.navbar__button {
+.navbar__left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__right {
+    display: flex;
+    align-items: center;
+}
+
+
+.navbar__button, .theme-toggle__button {
     display: flex;
     align-items: center;
     padding: 1rem 0rem;
     border-radius: 50px;
-    border: 2px solid var(--accent-color); /* Button outline */
-    background-color: transparent; /* Set initial background */
+    border: 2px solid var(--accent-color);
+    background-color: transparent;
     font-weight: bold;
-    color: var(--accent-color); /* Text color same as border */
+    color: var(--accent-color);
     position: relative;
-    padding-left: calc(2rem + 1rem); /* Adjust for circle */
-    transition: color 0.5s ease-out, background-color 0.5s ease-out; /* Only transition these properties */
+    padding-left: calc(2rem + 1rem);
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    outline: none;
+    font-size: 1rem;
 }
+
+.theme-toggle__button {
+    margin-right: 1rem;
+    border: 2px solid var(--accent-color);
+}
+
 
 .navbar__container {
     text-decoration: none;
 }
 
-.navbar__button:hover {
-    background-color: var(--accent-color); /* Background on hover */
-    color: var(--primary-color); /* Text color on hover */
+.navbar__button:hover, .theme-toggle__button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
 }
 
-.navbar__button::before {
+
+.navbar__button::before, .theme-toggle__button::before {
     content: "";
     position: absolute;
     left: 0;
-    width: calc(2rem + 1rem); /* Match button height */
+    width: calc(2rem + 1rem);
     height: 100%;
-    background-color: var(--accent-color); /* Solid circle */
+    background-color: var(--accent-color);
     border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
+
+
+.navbar__button:hover::before, .theme-toggle__button:hover::before {
+    background-color: var(--accent-color-darker);
+}
+
 
 .navbar_button--paddingEven {
     padding: 0rem 1.5rem;
+    position: relative;
+    z-index: 1;
 }
+
+.theme-toggle__button span, .navbar_button--paddingEven {
+    position: relative;
+    z-index: 1;
+}
+
 
 .body__header {
     display: flex;
@@ -47,45 +89,84 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    gap: 1rem;
+    min-height: 80vh;
+    gap: 2rem;
+    padding: 2rem;
+    text-align: center;
 }
 
 .body__header__image {
-    height: 10rem;
+    height: 8rem;
+    margin-bottom: 1rem;
 }
 
 .body__header__cards {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap:1rem;
+    gap: 2rem;
+    width: 90%;
+    max-width: 1200px;
 }
 
 .body__header__card {
-    width: 20%;
-    max-width: 20%;
+    flex: 1;
+    min-width: 0;
     color: var(--primary-color);
     background-color: var(--accent-color);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 25px;
-    box-shadow: 5px 5px 0 #2B87D3;
+    box-shadow: 8px 8px 0 var(--accent-color-darker);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.body__header__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 0 var(--accent-color-darker);
+}
+
 
 .body__header__card>h3 {
     text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
 }
 
+.body__header__card>p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
 @media only screen and (max-width: 767px) {
-    .body__header__image { height: 4rem; padding: 1px }
-    .body__header__cards { flex-direction: column; align-items: center; width: unset }
-    .body__header__card { width: unset; max-width: 80% }
-    .body__header { margin: 0 auto; text-align: center; min-height: unset; }
+    .body__header__image { height: 6rem; margin-bottom: 1.5rem; }
+    .body__header__cards { flex-direction: column; align-items: center; width: 95%; gap: 1.5rem; }
+    .body__header__card { width: 95%; max-width: unset; padding: 1.5rem; }
+    .body__header { margin: 0 auto; text-align: center; min-height: unset; padding: 3rem 1rem; }
+
     .navbar {
-        position: unset;
+        position: fixed;
+        top: 0;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: stretch;
         text-align: center;
-        display: flex;
-        justify-content: right;
+        background-color: var(--primary-color);
+        z-index: 100;
+    }
+
+    .navbar__left, .navbar__right {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .navbar__button, .theme-toggle__button {
+        width: 100%;
+        padding: 1rem;
+        padding-left: calc(2rem + 1rem);
+        font-size: 1.1rem;
     }
 
 }
