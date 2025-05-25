@@ -1,0 +1,136 @@
+/* public/styles/guide_detail.css */
+
+.guide-detail-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: var(--text-color);
+}
+
+#guideDetailTitle {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+#guideDetailMeta {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    opacity: 0.85;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color, #eee);
+    padding-bottom: 10px;
+}
+
+#guideDetailMeta .author {
+    font-weight: 600;
+}
+
+#guideDetailContent {
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Basic styling for HTML content rendered from Markdown */
+#guideDetailContent h1, 
+#guideDetailContent h2, 
+#guideDetailContent h3, 
+#guideDetailContent h4, 
+#guideDetailContent h5, 
+#guideDetailContent h6 {
+    color: var(--accent-color-darker);
+    margin-top: 1.8em;
+    margin-bottom: 0.8em;
+    line-height: 1.3;
+}
+
+#guideDetailContent h1 { font-size: 2.2rem; }
+#guideDetailContent h2 { font-size: 1.9rem; }
+#guideDetailContent h3 { font-size: 1.6rem; }
+#guideDetailContent h4 { font-size: 1.3rem; }
+
+
+#guideDetailContent p {
+    margin-bottom: 1.2em;
+}
+
+#guideDetailContent a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+#guideDetailContent a:hover {
+    text-decoration: underline;
+}
+
+#guideDetailContent pre {
+    background-color: var(--secondary-color); /* Dark background for code blocks */
+    color: var(--primary-color); /* Light text color for code */
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+#guideDetailContent code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgba(0,0,0,0.05); /* Subtle background for inline code */
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+#guideDetailContent pre code { /* Reset for code inside pre */
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+}
+
+
+#guideDetailContent blockquote {
+    border-left: 5px solid var(--accent-color);
+    padding-left: 15px;
+    margin-left: 0;
+    font-style: italic;
+    color: var(--secondary-color);
+    opacity: 0.9;
+}
+
+#guideDetailContent ul, 
+#guideDetailContent ol {
+    margin-bottom: 1.2em;
+    padding-left: 25px; /* Indent lists */
+}
+#guideDetailContent li {
+    margin-bottom: 0.5em;
+}
+
+#guideDetailContent img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block; /* Center images if they are alone */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.loading-text,
+.error-text {
+    text-align: center;
+    padding: 30px;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.error-text {
+    color: #dc3545;
+}

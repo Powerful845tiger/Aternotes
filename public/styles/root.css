@@ -2,43 +2,50 @@
 @import 'login.css';
 
 :root {
-    --primary-color: #f8f9fa;
-    --secondary-color: #2d3436;
-    --accent-color: #1FD78D;
-    --accent-color-darker: #1aa572;
-    --text-color: #2d3436;
-    --navbar-bg: rgba(248, 249, 250, 0.95);
-    --hero-bg-1: #f8f9fa;
-    --hero-bg-2: #e1f7ed;
-    --card-bg: #ffffff;
-    --card-central-bg: #f1fcfa;
-    --theme-toggle-bg: rgba(255, 255, 255, 0.9);
+    --primary-color: #fdfdfd; /* Slightly off-white for a softer look */
+    --secondary-color: #343a40; /* Dark grey for text, slightly softer than pure black */
+    --accent-color: #007bff; /* A common, vibrant blue */
+    --accent-color-darker: #0056b3; /* Darker blue for hover/active states */
+    --text-color: #212529; /* Default text color, good contrast with primary */
+    --navbar-bg: rgba(253, 253, 253, 0.9); /* Adjusted to new primary */
+    --hero-bg-1: #fdfdfd; /* Consistent with new primary */
+    --hero-bg-2: #e9ecef; /* Light grey for gradient end */
+    --card-bg: #ffffff; /* White for cards */
+    --card-central-bg: #f8f9fa; /* Slightly off-white for central card */
+    --theme-toggle-bg: rgba(255, 255, 255, 0.85); /* Adjusted alpha */
+    --border-color: #dee2e6; /* For subtle borders if needed */
 }
 
 body.dark-mode {
-    --primary-color: #0a0a0a;
-    --secondary-color: #f8f9fa;
-    --text-color: #f8f9fa;
-    --navbar-bg: rgba(10, 10, 10, 0.95);
-    --hero-bg-1: #121212;
-    --hero-bg-2: #0d1f18;
-    --card-bg: #1a1a1a;
-    --card-central-bg: #1a2a24;
-    --theme-toggle-bg: rgba(26, 26, 26, 0.9);
+    --primary-color: #121212; /* Common dark theme background */
+    --secondary-color: #e9ecef; /* Light grey for text in dark mode */
+    --accent-color: #007bff; /* Blue accent can work in dark mode too, or choose a lighter variant if needed */
+    --accent-color-darker: #0056b3;
+    --text-color: #f8f9fa; /* Near white for dark mode text */
+    --navbar-bg: rgba(20, 20, 20, 0.9); /* Darker navbar bg */
+    --hero-bg-1: #1a1a1a; /* Darker hero bg */
+    --hero-bg-2: #2c2c2c; /* Even darker for gradient end */
+    --card-bg: #1e1e1e; /* Dark grey for cards */
+    --card-central-bg: #232323; /* Slightly lighter dark grey for central card */
+    --theme-toggle-bg: rgba(30, 30, 30, 0.85); /* Darker toggle bg */
+    --border-color: #343a40; /* Darker border color */
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.2s ease, border-color 0.3s ease;
+    /* Consider removing color transition from * if it causes unwanted global effects, apply to specific elements */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Enhanced font stack */
+    line-height: 1.65; /* Slightly increased line-height for readability */
     min-height: 100vh;
     background: linear-gradient(160deg, var(--hero-bg-1) 0%, var(--hero-bg-2) 100%);
     color: var(--text-color);
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
 }

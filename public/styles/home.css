@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem; /* Adjusted horizontal padding */
     background: var(--navbar-bg);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -25,7 +25,7 @@
 }
 
 .theme-toggle__button {
-    padding: 0.8rem 1.5rem;
+    padding: 0.75rem 1.5rem; /* Adjusted padding */
     border-radius: 30px;
     border: 2px solid var(--accent-color);
     background: var(--theme-toggle-bg);
@@ -33,6 +33,7 @@
     color: var(--text-color);
     cursor: pointer;
     transition: all 0.3s ease;
+    font-size: 0.9rem; /* Standardized font size */
     position: relative;
     overflow: hidden;
 }
@@ -42,21 +43,22 @@
     color: var(--primary-color);
 }
 
+/* Refined navbar__button for consistency and simplified structure if complex ::before is not essential */
 .navbar__button {
-    display: flex;
+    display: inline-flex; /* Changed from flex to inline-flex */
     align-items: center;
-    padding: 1rem 0rem;
-    border-radius: 50px;
+    justify-content: center; /* Center text */
+    padding: 0.75rem 1.5rem; /* Consistent padding */
+    border-radius: 30px; /* Consistent border-radius */
     border: 2px solid var(--accent-color);
     background-color: transparent;
-    font-weight: bold;
+    font-weight: 600; /* Consistent font-weight */
     color: var(--accent-color);
-    position: relative;
-    padding-left: calc(2rem + 1rem);
-    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
     outline: none;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Standardized font size */
+    text-decoration: none; /* Remove underline if it's an anchor */
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar__button:hover {
@@ -65,23 +67,10 @@
     border-color: var(--accent-color);
 }
 
-.navbar__button::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: calc(2rem + 1rem);
-    height: 100%;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-}
+/* Removed ::before for a simpler button design, can be added back if specific visual is needed */
 
-.navbar__button:hover::before {
-    background-color: var(--accent-color-darker);
-}
-
-.navbar_button--paddingEven {
-    padding: 0rem 1.5rem;
+.navbar_button--paddingEven { /* This class might be redundant now or can be used for specific overrides */
+    padding: 0.75rem 1.5rem; /* Ensure consistency */
     position: relative;
     z-index: 1;
 }
@@ -111,9 +100,9 @@
 }
 
 .hero__tagline {
-    font-size: 2rem;
+    font-size: 2.2rem; /* Slightly increased for impact */
     max-width: 800px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem; /* Adjusted margin */
     font-weight: 600;
     color: var(--text-color);
     line-height: 1.4;
@@ -130,10 +119,10 @@
 .body__header__card {
     flex: 1;
     background: var(--card-bg);
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    padding: 2rem; /* Adjusted padding */
+    border-radius: 16px; /* Slightly reduced border-radius for a sharper look */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Softened shadow */
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); /* Adjusted transition timing */
     position: relative;
     overflow: hidden;
 }
@@ -160,41 +149,41 @@
 }
 
 .body__header__card--central {
-    transform: scale(1.05);
+    transform: scale(1.03); /* Slightly reduced scale */
     background: var(--card-central-bg);
 }
 
 .body__header__card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.3rem; /* Adjusted font size */
+    margin-bottom: 1rem; /* Adjusted margin */
     color: var(--accent-color);
 }
 
 .body__header__card p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1rem; /* Adjusted font size */
+    line-height: 1.6; /* Adjusted line-height */
     color: var(--text-color);
 }
 
 @media (max-width: 767px) {
     .navbar {
-        padding: 1rem;
+        padding: 1rem 1.5rem; /* Adjusted mobile padding */
         flex-direction: row;
         gap: 1rem;
-        position: unset;
+        /* position: unset; Let's keep it fixed for mobile as well for now, can be changed if it causes issues */
     }
 
     .body__header {
-        padding: 6rem 1rem 2rem;
+        padding: 7rem 1.5rem 3rem; /* Adjusted padding */
     }
 
     .body__header__image {
-        height: 4rem;
+        height: 3.5rem; /* Adjusted size */
     }
 
     .hero__tagline {
-        font-size: 1.5rem;
-        margin-bottom: 3rem;
+        font-size: 1.4rem; /* Adjusted font size */
+        margin-bottom: 2.5rem; /* Adjusted margin */
     }
 
     .body__header__cards {
@@ -204,13 +193,23 @@
     }
 
     .body__header__card {
-        padding: 2rem;
+        padding: 1.5rem; /* Adjusted padding */
+    }
+    .body__header__card h3 {
+        font-size: 1.2rem; /* Adjusted for mobile */
+    }
+    .body__header__card p {
+        font-size: 0.95rem; /* Adjusted for mobile */
     }
 
-    .navbar__button {
-        width: 100%;
-        padding: 1rem;
-        padding-left: calc(2rem + 1rem);
-        font-size: 1.1rem;
+    .navbar__button { /* Ensure navbar buttons are well-styled on mobile */
+        width: auto; /* Allow button to size based on content */
+        padding: 0.7rem 1.2rem; /* Mobile specific padding */
+        font-size: 0.85rem; /* Mobile specific font size */
+        /* padding-left should not be an issue if ::before is removed or simplified */
+    }
+    .theme-toggle__button { /* Ensure theme toggle button is also adjusted */
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
     }
 }

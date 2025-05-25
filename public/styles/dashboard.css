@@ -1,0 +1,482 @@
+/* Basic Styling for Dashboard - public/styles/dashboard.css */
+.dashboard-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.dashboard-container h1, .dashboard-container h2 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+#addModeratorForm {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--card-central-bg);
+    border-radius: 6px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#addModeratorForm label {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+#discordIdInput {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+#addModeratorForm button {
+    padding: 8px 15px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#addModeratorForm button:hover {
+    background-color: var(--accent-color-darker);
+}
+
+#messageArea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    display: none; /* Hidden by default */
+    font-weight: 500;
+}
+
+#messageArea.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+#messageArea.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+#moderatorListContainer {
+    margin-top: 20px;
+}
+
+.moderator-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--card-central-bg);
+    border: 1px solid var(--border-color, #eee);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.moderator-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.moderator-item span {
+    flex-grow: 1;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.moderator-item .actions button {
+    padding: 6px 10px;
+    margin-left: 8px;
+    border: 1px solid var(--accent-color);
+    background-color: transparent;
+    color: var(--accent-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.moderator-item .actions button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.moderator-item .actions .remove-mod-btn {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.moderator-item .actions .remove-mod-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Loading state for moderator list */
+#moderatorListContainer.loading::before {
+    content: 'Loading moderators...';
+    display: block;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+/* Guide Management Section */
+#guideManagementSection {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color, #eee);
+}
+
+#guideEditorContainer {
+    margin-top: 15px;
+    padding: 20px;
+    background-color: var(--card-central-bg);
+    border-radius: 6px;
+    border: 1px solid var(--border-color, #ddd);
+}
+
+#guideForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+#guideTitleInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: 4px;
+    font-size: 1.1rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* EasyMDE Specifics - ensure it takes available width and has a reasonable height */
+.EasyMDEContainer {
+    margin-bottom: 15px;
+}
+
+.EasyMDEContainer .CodeMirror {
+    min-height: 250px;
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+.EasyMDEContainer .CodeMirror-focused {
+    border-color: var(--accent-color);
+}
+.EasyMDEContainer .cm-s-easymde .CodeMirror-cursor {
+    border-left: 1px solid var(--text-color);
+}
+.EasyMDEContainer .editor-toolbar button {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: var(--text-color); /* Ensure toolbar icons are visible */
+}
+.EasyMDEContainer .editor-toolbar button:hover,
+.EasyMDEContainer .editor-toolbar button.active {
+    background: var(--accent-color-darker);
+    border-color: var(--accent-color);
+    color: white;
+}
+.EasyMDEContainer .editor-preview, .EasyMDEContainer .editor-preview-side {
+    background: var(--primary-color); /* Match editor background */
+    color: var(--text-color);
+    border: 1px solid var(--border-color, #ccc);
+}
+
+
+#guideForm .form-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+#guideForm .form-actions button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#saveDraftBtn {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Guides Pending Review Section */
+#guidesPendingReviewSection {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color, #eee);
+}
+
+.review-guide-item {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color, #eee);
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.review-guide-item .info {
+    flex-grow: 1;
+    margin-right: 15px; /* Space before action buttons */
+}
+
+.review-guide-item .info .title {
+    font-weight: 600;
+    color: var(--text-color);
+    display: block; /* Ensure title takes its own line if needed */
+    margin-bottom: 4px;
+}
+
+.review-guide-item .info .author {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+.review-guide-item .actions {
+    display: flex;
+    gap: 8px; /* Spacing between buttons */
+    align-items: center; /* Align buttons nicely */
+}
+
+.review-guide-item .actions button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.review-guide-item .actions .preview-guide-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+.review-guide-item .actions .preview-guide-btn:hover {
+    background-color: var(--accent-color-darker);
+}
+
+.review-guide-item .actions .approve-guide-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    border-color: #28a745;
+}
+.review-guide-item .actions .approve-guide-btn:hover {
+    background-color: #218838;
+}
+
+.review-guide-item .actions .reject-guide-btn {
+    background-color: #dc3545; /* Red */
+    color: white;
+    border-color: #dc3545;
+}
+.review-guide-item .actions .reject-guide-btn:hover {
+    background-color: #c82333;
+}
+
+/* Basic Modal for Guide Preview */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 25px;
+    border: 1px solid var(--border-color, #888);
+    border-radius: 8px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 700px; /* Maximum width */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+
+.modal-close-btn {
+    color: var(--secondary-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color: #000; /* Or var(--text-color) if in dark mode this is too stark */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#guidePreviewContent {
+    margin-top: 15px;
+    max-height: 60vh; /* Limit height and make it scrollable */
+    overflow-y: auto;
+    background-color: var(--primary-color); /* Slightly different bg for content area */
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color, #ddd);
+}
+
+/* Styles for HTML content within the preview if needed (e.g. from Parsedown) */
+#guidePreviewContent h1, #guidePreviewContent h2, #guidePreviewContent h3 {
+    color: var(--accent-color);
+}
+#guidePreviewContent p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+#guidePreviewContent a {
+    color: var(--accent-color-darker);
+}
+#guidePreviewContent pre {
+    background-color: var(--secondary-color); /* Assuming dark bg for code */
+    color: var(--primary-color); /* Light text for code */
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+#guidePreviewContent code {
+    font-family: monospace;
+}
+#guidePreviewContent blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 10px;
+    margin-left: 0;
+    font-style: italic;
+    color: var(--secondary-color); opacity: 0.9;
+}
+#guidePreviewContent ul, #guidePreviewContent ol {
+    margin-left: 20px;
+}
+#guidePreviewContent img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+#saveDraftBtn:hover {
+    background-color: var(--accent-color-darker);
+}
+
+#submitReviewBtn {
+    background-color: #28a745; /* A distinct green */
+    color: white;
+}
+#submitReviewBtn:hover {
+    background-color: #218838; /* Darker green */
+}
+
+#showCreateGuideFormBtn {
+    padding: 10px 15px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+#showCreateGuideFormBtn:hover {
+    background-color: var(--accent-color-darker);
+}
+
+
+#userGuidesList {
+    margin-top: 20px;
+}
+
+.user-guide-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color, #eee);
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.user-guide-item span.title {
+    font-weight: 600;
+    color: var(--text-color);
+    flex-grow: 1;
+}
+.user-guide-item span.status {
+    margin-left: 15px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: white;
+    background-color: #6c757d; /* Default grey for status */
+}
+.user-guide-item span.status-draft { background-color: #6c757d; } /* Grey */
+.user-guide-item span.status-pending_review { background-color: #ffc107; color: #333; } /* Yellow */
+.user-guide-item span.status-published { background-color: #28a745; } /* Green */
+.user-guide-item span.status-rejected { background-color: #dc3545; } /* Red */
+
+
+.user-guide-item .actions button {
+    padding: 6px 10px;
+    margin-left: 8px;
+    border: 1px solid var(--accent-color);
+    background-color: transparent;
+    color: var(--accent-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.user-guide-item .actions button:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
